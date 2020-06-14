@@ -7,6 +7,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Production',
+      template: 'src/views/index.html',
     }),
   ],
 });

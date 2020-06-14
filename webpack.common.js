@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const ASSET_PATH = process.env.ASSET_PATH || '';
 
@@ -12,6 +13,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new Dotenv(),
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets', to: 'dist/assets' }],
+    }),
   ],
   output: {
     filename: '[name].bundle.js',
@@ -37,7 +41,7 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s?)css$/i,
         use: [
           // fallback to style-loader in development
           process.env.NODE_ENV !== 'production'

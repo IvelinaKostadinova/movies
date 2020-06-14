@@ -9,6 +9,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
+      template: 'src/views/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

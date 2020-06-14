@@ -1,16 +1,12 @@
-import './style.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-function component() {
-  const element = document.createElement('div');
+import './styles/style.scss';
+import './styles/react-contextmenu.scss';
+import 'bootstrap/scss/bootstrap.scss';
+import './styles/modal.scss';
 
-  element.innerHTML = 'Hello Webpack!';
-
-  console.log(process.env.DB_HOST);
-  console.log(process.env.ASSET_PATH);
-
-  return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(<App />, document.getElementById('root'));
 
 module.hot.accept();
