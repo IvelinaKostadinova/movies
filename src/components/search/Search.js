@@ -4,13 +4,13 @@ import './Search.scss';
 
 const Search = () => {
   return (
-    <div className="search-container">
+    <div id="search">
       <input
-        id="search-txt"
+        id="search__text"
         type="text"
         placeholder="What do you want to watch?"
       ></input>
-      <button id="search-btn" type="submit">
+      <button id="search__button" type="submit">
         Search
       </button>
     </div>

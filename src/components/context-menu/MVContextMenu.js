@@ -13,10 +13,10 @@ const MVContextMenu = (props) => {
     <>
       <ContextMenuTrigger id={id}>
         <div className="context-menu">
-          <button className="context-menu-btn">
-            <span className="dot"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
+          <button className="context-menu__btn">
+            <span className="context-menu__btn__dot"></span>
+            <span className="context-menu__btn__dot"></span>
+            <span className="context-menu__btn__dot"></span>
           </button>
         </div>
       </ContextMenuTrigger>

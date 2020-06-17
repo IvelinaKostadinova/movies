@@ -9,16 +9,17 @@ import './Home.scss';
 
 const Home = () => {
   const movies = React.useContext(MoviesContext);
+
   return (
-    <div className="home">
-      <div className="search-area">
+    <div id="home">
+      <div id="home__search">
         <AddMovie></AddMovie>
         <Search></Search>
       </div>
-      <div className="result-area">
+      <div id="home__result">
         <Actions></Actions>
         <hr></hr>
-        <div id="result">{movies.length} movies found</div>
+        <div id="home__result__text">{movies.length} movies found</div>
         {movies.map((movie) => {
           return <Movie key={movie.id} item={movie}></Movie>;
         })}

@@ -4,31 +4,31 @@ import './Actions.scss';
 
 const Actions = () => {
   return (
-    <div className="actions-container">
-      <button className="filter" type="submit">
+    <div className="actions">
+      <button className="actions__filter" type="submit">
         ALL
       </button>
-      <button className="filter" type="submit">
+      <button className="actions__filter" type="submit">
         DOCUMENTARY
       </button>
-      <button className="filter" type="submit">
+      <button className="actions__filter" type="submit">
         COMEDY
       </button>
-      <button className="filter" type="submit">
+      <button className="actions__filter" type="submit">
         HORROR
       </button>
-      <button className="filter" type="submit">
+      <button className="actions__filter" type="submit">
         CRIME
       </button>
-      <button className="filter" type="submit">
+      <button className="actions__filter" type="submit">
         FANTASY
       </button>
 
-      <select name="sort" id="sort-slc">
+      <select name="sort" className="actions__sort">
         <option value="releseDate">RELEASE DATE</option>
         <option value="title">TITLE</option>
       </select>
-      <label id="sort-lbl">SORT BY</label>
+      <label className="actions__sort__label">SORT BY</label>
     </div>
   );
 };

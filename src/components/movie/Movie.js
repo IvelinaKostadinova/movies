@@ -6,13 +6,13 @@ import './Movie.scss';
 
 const Movie = (props) => {
   return (
-    <div className="movie-container">
+    <div className="movie">
       <MVContextMenu item={props.item}></MVContextMenu>
 
-      <img src={props.item.url}></img>
-      <div className="name">{props.item.name}</div>
-      <div className="genre">{props.item.genre}</div>
-      <div className="year">{props.item.year}</div>
+      <img className="movie__url" src={props.item.url}></img>
+      <div className="movie__name">{props.item.name}</div>
+      <div className="movie__genre">{props.item.genre}</div>
+      <div className="movie__year">{props.item.year}</div>
     </div>
   );
 };

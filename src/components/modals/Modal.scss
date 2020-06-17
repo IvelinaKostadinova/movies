@@ -1,5 +1,20 @@
 @import '../../styles/variables';
 
+#add-movie-btn {
+  width: 20rem;
+  height: 5rem;
+  color: $pink;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: $light-grey;
+  border-radius: 0.5rem;
+  opacity: 0.95;
+  float: right;
+  margin-right: 3rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
 .modal-dialog {
   max-width: 63.5rem;
 
