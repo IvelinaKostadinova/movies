@@ -1,19 +1,21 @@
+@import 'variables';
+
 .menu{
 	background-color: black;
-	padding: 10px 0;
-  text-indent: 10px;
-  height:85px;
-  width: 120px;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+	padding: 1rem 0;
+  text-indent: 1rem;
+  height:8.5rem;
+  width: 12rem;
+  color: $white;
+  font-family: $font-family;
 
   .react-contextmenu-item {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.8rem;
 
     &:hover {
-      background-color: #f65261;;
+      background-color: $pink;
     }
   }
 }
