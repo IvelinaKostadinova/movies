@@ -1,9 +1,11 @@
 import React from 'react';
-import Movie from '../components/Movie';
-import Search from '../components/Search';
-import Actions from '../components/Actions';
-import AddMovie from '../components/AddMovie';
-import MoviesContext from '../MoviesContext';
+import Movie from '../../components/movie/Movie';
+import Search from '../../components/search/Search';
+import Actions from '../../components/actions/Actions';
+import AddMovie from '../../components/modals/AddMovie';
+import MoviesContext from '../../MoviesContext';
+
+import './Home.scss';
 
 const Home = () => {
   const movies = React.useContext(MoviesContext);

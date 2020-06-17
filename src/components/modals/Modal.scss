@@ -1,10 +1,11 @@
-@import 'variables';
+@import '../../styles/variables';
 
 .modal-dialog {
   max-width: 63.5rem;
 
   .modal-content {
     background-color: $black;
+    width: 63.5rem;
 
     .modal-header {
       border-bottom: none;

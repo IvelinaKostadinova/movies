@@ -1,9 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { MenuItem } from 'react-contextmenu';
 import PropTypes from 'prop-types';
 
+import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const DeleteMovie = () => {

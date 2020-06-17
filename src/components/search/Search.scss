@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.search-container {
+    padding: 15rem 0 15rem 30rem;
+
+    #search-txt {
+      width: 60rem;
+      height: 6rem;
+      background-color: $grey;
+      text-size-adjust: auto;
+      font-size: 2.4rem;
+      text-indent: 1.5rem;
+      color: $white;
+    }
+
+    #search-btn {
+      margin-left: 1rem;
+      width: 20rem;
+      height: 6rem;
+      font-size: 2.5rem;
+      color: $white;
+      background-color: $pink;
+      border-color: $pink;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+}

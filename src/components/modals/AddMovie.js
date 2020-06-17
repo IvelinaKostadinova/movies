@@ -1,13 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import DatePicker from 'react-datepicker';
-import { MenuItem } from 'react-contextmenu';
-import PropTypes from 'prop-types';
 
+import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const EditMovie = (props) => {
+const AddMovie = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -26,9 +24,9 @@ const EditMovie = (props) => {
 
   return (
     <>
-      <MenuItem data={{ option: 'edit' }} onClick={handleClick}>
-        Edit
-      </MenuItem>
+      <button id="add-movie-btn" type="submit" onClick={handleClick}>
+        + ADD MOVIE
+      </button>
       <Modal
         show={show}
         onHide={handleClose}
@@ -37,32 +35,23 @@ const EditMovie = (props) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <label id="title">EDIT MOVIE</label>
+          <label id="title">ADD MOVIE</label>
           <label>TITLE</label>
-          <input
-            type="text"
-            placeholder="Select Title"
-            value={props.movie.name}
-            onChange={handleChange}
-          ></input>
+          <input type="text" placeholder="Select Title"></input>
           <label>RELEASE DATE</label>
-          <DatePicker
-            onChange={handleChange}
-            placeholderText="Select Date"
-            selected={new Date(props.movie.year)}
-          />
+          <DatePicker onChange={handleChange} placeholderText="Select Date" />
           <label>MOVIE URL</label>
           <input type="text" placeholder="Movie URL here"></input>
           <label>GENRE</label>
-          <select defaultValue={props.movie.genre}>
+          <select defaultValue={'SELECT_GENRE'}>
             <option disabled value="SELECT_GENRE">
               Select Genre
             </option>
-            <option value="Documentary">DOCUMENTARY</option>
-            <option value="Comedy">COMEDY</option>
-            <option value="Horror">HORROR</option>
-            <option value="Crime">CRIME</option>
-            <option value="Fantasy">FANTASY</option>
+            <option value="DOCUMENTARY">DOCUMENTARY</option>
+            <option value="COMEDY">COMEDY</option>
+            <option value="HORROR">HORROR</option>
+            <option value="CRIME">CRIME</option>
+            <option value="FANTASY">FANTASY</option>
           </select>
           <label>OVERVIEW</label>
           <input type="text" placeholder="Overview here"></input>
@@ -74,7 +63,7 @@ const EditMovie = (props) => {
             Reset
           </button>
           <button id="submit-btn" onClick={handleSubmit}>
-            Save
+            Submit
           </button>
         </Modal.Footer>
       </Modal>
@@ -82,8 +71,4 @@ const EditMovie = (props) => {
   );
 };
 
-EditMovie.propTypes = {
-  movie: PropTypes.object,
-};
-
-export default EditMovie;
+export default AddMovie;
