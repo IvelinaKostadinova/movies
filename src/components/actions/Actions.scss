@@ -5,18 +5,9 @@
     height: 6rem;
     background-color: $black;
 
-    &__filter {
-      background-color: transparent;
-      color: $white;
-      border-color: transparent;
-      cursor: pointer;
-      margin: 2rem;
-      font-size: 1.8rem;
-    }
-    
     &__sort {
       float: right;
-      margin: 2.2rem;
+      margin: 3.2rem;
       background-color: transparent;
       color: $white;
       border-color: transparent;
@@ -24,10 +15,10 @@
       font-size: 1.8rem;
       cursor: pointer;
     }
-    
+
     &__sort__label {
       float:right;
-      margin: 2rem;
+      margin: 3rem;
       background-color: transparent;
       color: $white;
       border-color: transparent;
