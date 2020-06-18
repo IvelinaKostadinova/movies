@@ -12,19 +12,14 @@ const Actions = () => {
   const [fantasyActive, setFantasyActive] = useState(false);
 
   const handleClick = (e) => {
-    if (e == 'ALL') setAllActive(true);
-    if (e == 'DOCUMENTARY') setDocumentaryActive(true);
-    if (e == 'COMEDY') setComedyActive(true);
-    if (e == 'HORROR') setHorrorActive(true);
-    if (e == 'CRIME') setCrimeActive(true);
-    if (e == 'FANTASY') setFantasyActive(true);
-
-    if (e != 'ALL') setAllActive(false);
-    if (e != 'DOCUMENTARY') setDocumentaryActive(false);
-    if (e != 'COMEDY') setComedyActive(false);
-    if (e != 'HORROR') setHorrorActive(false);
-    if (e != 'CRIME') setCrimeActive(false);
-    if (e != 'FANTASY') setFantasyActive(false);
+    e == 'ALL' ? setAllActive(true) : setAllActive(false);
+    e == 'DOCUMENTARY'
+      ? setDocumentaryActive(true)
+      : setDocumentaryActive(false);
+    e == 'COMEDY' ? setComedyActive(true) : setComedyActive(false);
+    e == 'HORROR' ? setHorrorActive(true) : setHorrorActive(false);
+    e == 'CRIME' ? setCrimeActive(true) : setCrimeActive(false);
+    e == 'FANTASY' ? setFantasyActive(true) : setFantasyActive(false);
   };
 
   return (
