@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+
+.details {
+    width: 100%;
+    height: 47rem;
+
+  &__picture {
+    margin: 5rem 5rem 0 5rem;
+    width: 27rem;
+    float: left;
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    margin: 5rem 5rem 0 5rem;
+    float: left;
+    width: 50%;
+
+    &__name {
+      font-size: 5rem;
+      color: white;
+      font-family: $font-family;
+    }
+
+    &__rating {
+      margin-left: 1.5rem;
+      border: 1px solid grey;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 30px;
+      color: green;
+    }
+
+    &__award {
+      color: white;
+      font-size: 1.8rem;
+      font-family: $font-family;
+    }
+
+    &__year__duration {
+      margin-top: 5rem;
+      color: $pink;
+      font-size: 2.8rem;
+      font-family: $font-family;
+    }
+
+    &__description {
+      margin-top: 5rem;
+      color: white;
+      font-weight: 100;
+      font-size: 1.8rem;
+      font-family: $font-family;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    top: 5rem;
+    left: 90%;
+  }
+}
