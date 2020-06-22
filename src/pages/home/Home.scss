@@ -1,9 +1,11 @@
 @import '../../styles/variables';
 
 #home {
-    background-image: url(https://i.redd.it/1jofyu3ugsiz.jpg);
-    width: 100%;
-    height: 100%;
+    &__search {
+      background-image: url(https://i.redd.it/1jofyu3ugsiz.jpg);
+      width: 100%;
+      height: 46rem;
+    }
 
     &__result {
       width: 100%;
@@ -15,7 +17,7 @@
         height: 0.3rem;
         background-color: grey;
         border-color: $black;
-        margin: 0;
+        margin: 1;
       }
     }
 
