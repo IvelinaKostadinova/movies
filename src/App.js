@@ -1,11 +1,11 @@
 import React from 'react';
 import ErrorBoundary from './helpers/ErrorBoundry';
-import Home from './pages/home/Home';
+import HomePage from './pages/home/HomePage';
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <Home></Home>
+      <HomePage></HomePage>
     </ErrorBoundary>
   );
 };

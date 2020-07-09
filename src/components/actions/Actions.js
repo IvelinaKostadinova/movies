@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Filter from '../filter/Filter';
 
 import './Actions.scss';
 
-const Actions = () => {
+const Actions = ({ onFilter, onSort }) => {
   const [allActive, setAllActive] = useState(false);
   const [documentaryActive, setDocumentaryActive] = useState(false);
   const [comedyActive, setComedyActive] = useState(false);
@@ -20,6 +21,14 @@ const Actions = () => {
     e == 'HORROR' ? setHorrorActive(true) : setHorrorActive(false);
     e == 'CRIME' ? setCrimeActive(true) : setCrimeActive(false);
     e == 'FANTASY' ? setFantasyActive(true) : setFantasyActive(false);
+
+    if (e == 'ALL') e = '';
+
+    onFilter(e);
+  };
+
+  const handleSelect = (e) => {
+    onSort(e.target.value);
   };
 
   return (
@@ -51,13 +60,18 @@ const Actions = () => {
         active={fantasyActive}
       ></Filter>
 
-      <select name="sort" className="actions__sort">
+      <select name="sort" className="actions__sort" onChange={handleSelect}>
         <option value="releseDate">RELEASE DATE</option>
         <option value="title">TITLE</option>
       </select>
       <label className="actions__sort__label">SORT BY</label>
     </div>
   );
+};
+
+Actions.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+  onSort: PropTypes.func.isRequired,
 };
 
 export default Actions;
