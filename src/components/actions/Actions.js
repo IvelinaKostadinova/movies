@@ -61,7 +61,7 @@ const Actions = ({ onFilter, onSort }) => {
       ></Filter>
 
       <select name="sort" className="actions__sort" onChange={handleSelect}>
-        <option value="releseDate">RELEASE DATE</option>
+        <option value="release_date">RELEASE DATE</option>
         <option value="title">TITLE</option>
       </select>
       <label className="actions__sort__label">SORT BY</label>

@@ -13,7 +13,15 @@ const Movie = (props) => {
       <MVContextMenu item={props.item}></MVContextMenu>
 
       <Link to={url}>
-        <img className="movie__url" src={props.item.poster_path}></img>
+        <img
+          className="movie__url"
+          src={props.item.poster_path}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src =
+              'https://sd.keepcalms.com/i/error-404-no-wallpaper-found.png';
+          }}
+        ></img>
       </Link>
       <div className="movie__name">{props.item.title}</div>
       <div className="movie__genre">{props.item.genres.join(', ')}</div>
