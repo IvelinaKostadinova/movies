@@ -5,7 +5,7 @@ import HomePage from './pages/home/HomePage';
 const App = () => {
   return (
     <ErrorBoundary>
-      <HomePage></HomePage>
+      <HomePage />
     </ErrorBoundary>
   );
 };

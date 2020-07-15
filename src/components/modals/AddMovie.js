@@ -8,36 +8,31 @@ import PropTypes from 'prop-types';
 import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const AddMovie = ({ saveMovie }) => {
-  const initialMovie = {
-    title: '',
-    release_date: null,
-    poster_path: '',
-    genres: null,
-    overview: '',
-    runtime: null,
-  };
+const initialMovie = {
+  title: '',
+  release_date: null,
+  poster_path: '',
+  genres: null,
+  overview: '',
+  runtime: null,
+};
 
+const AddMovie = ({ saveMovie }) => {
   const [show, setShow] = useState(false);
   const [movie, setMovie] = useState(initialMovie);
 
-  const handleTitleChange = (event) => {
-    setMovie({ ...movie, title: event.target.value });
+  const handleChange = (event) => {
+    let value = event.target.value;
+    if (event.target.name === 'runtime') {
+      value = parseInt(value);
+    } else if (event.target.name === 'genres') {
+      value = [value];
+    }
+    setMovie({ ...movie, [event.target.name]: value });
   };
-  const handleUrlChange = (event) => {
-    setMovie({ ...movie, poster_path: event.target.value });
-  };
+
   const handleReleaseDateChange = (date) => {
     setMovie({ ...movie, release_date: date });
-  };
-  const handleGenreChange = (event) => {
-    setMovie({ ...movie, genres: [event.target.value] });
-  };
-  const handleOverviewChange = (event) => {
-    setMovie({ ...movie, overview: event.target.value });
-  };
-  const handleRuntimeChange = (event) => {
-    setMovie({ ...movie, runtime: parseInt(event.target.value) });
   };
 
   const handleClose = () => {
@@ -72,9 +67,10 @@ const AddMovie = ({ saveMovie }) => {
           <label id="title">ADD MOVIE</label>
           <label>TITLE</label>
           <input
+            name="title"
             type="text"
             placeholder="Select Title"
-            onChange={handleTitleChange}
+            onChange={handleChange}
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
@@ -85,32 +81,43 @@ const AddMovie = ({ saveMovie }) => {
           />
           <label>MOVIE URL</label>
           <input
+            name="poster_path"
             type="text"
             placeholder="Movie URL here"
-            onChange={handleUrlChange}
+            onChange={handleChange}
           ></input>
           <label>GENRE</label>
-          <select defaultValue={'SELECT_GENRE'} onChange={handleGenreChange}>
+          <select
+            name="genres"
+            defaultValue={'SELECT_GENRE'}
+            onChange={handleChange}
+          >
             <option disabled value="SELECT_GENRE">
               Select Genre
             </option>
-            <option value="Documentary">DOCUMENTARY</option>
-            <option value="Comedy">COMEDY</option>
-            <option value="Horror">HORROR</option>
-            <option value="Crime">CRIME</option>
-            <option value="Fantasy">FANTASY</option>
+            {['Documentary', 'Comedy', 'Horror', 'Crime', 'Fantasy'].map(
+              (genre) => {
+                return (
+                  <option key={genre} value={genre}>
+                    {genre}
+                  </option>
+                );
+              }
+            )}
           </select>
           <label>OVERVIEW</label>
           <input
+            name="overview"
             type="text"
             placeholder="Overview here"
-            onChange={handleOverviewChange}
+            onChange={handleChange}
           ></input>
           <label>RUNTIME</label>
           <input
+            name="runtime"
             type="text"
             placeholder="Runtime here"
-            onChange={handleRuntimeChange}
+            onChange={handleChange}
           ></input>
         </Modal.Body>
         <Modal.Footer>

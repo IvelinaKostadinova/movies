@@ -23,23 +23,18 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
   const [show, setShow] = useState(false);
   const [movie, setMovie] = useState(initialMovie);
 
-  const handleTitleChange = (event) => {
-    setMovie({ ...movie, title: event.target.value });
+  const handleChange = (event) => {
+    let value = event.target.value;
+    if (event.target.name === 'runtime') {
+      value = parseInt(value);
+    } else if (event.target.name === 'genres') {
+      value = [value];
+    }
+    setMovie({ ...movie, [event.target.name]: value });
   };
-  const handleUrlChange = (event) => {
-    setMovie({ ...movie, poster_path: event.target.value });
-  };
+
   const handleReleaseDateChange = (date) => {
     setMovie({ ...movie, release_date: date });
-  };
-  const handleGenreChange = (event) => {
-    setMovie({ ...movie, genres: [event.target.value] });
-  };
-  const handleOverviewChange = (event) => {
-    setMovie({ ...movie, overview: event.target.value });
-  };
-  const handleRuntimeChange = (event) => {
-    setMovie({ ...movie, runtime: parseInt(event.target.value) });
   };
 
   const handleClose = () => {
@@ -74,10 +69,11 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           <label id="title">EDIT MOVIE</label>
           <label>TITLE</label>
           <input
+            name="title"
             type="text"
             placeholder="Select Title"
             value={movie.title}
-            onChange={handleTitleChange}
+            onChange={handleChange}
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
@@ -88,32 +84,46 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           />
           <label>MOVIE URL</label>
           <input
+            name="poster_path"
             type="text"
             placeholder="Movie URL here"
-            onChange={handleUrlChange}
+            value={movie.poster_path}
+            onChange={handleChange}
           ></input>
           <label>GENRE</label>
-          <select defaultValue={movie.genres[0]} onChange={handleGenreChange}>
+          <select
+            name="genres"
+            defaultValue={movie.genres[0]}
+            onChange={handleChange}
+          >
             <option disabled value="SELECT_GENRE">
               Select Genre
             </option>
-            <option value="Documentary">DOCUMENTARY</option>
-            <option value="Comedy">COMEDY</option>
-            <option value="Horror">HORROR</option>
-            <option value="Crime">CRIME</option>
-            <option value="Fantasy">FANTASY</option>
+            {['Documentary', 'Comedy', 'Horror', 'Crime', 'Fantasy'].map(
+              (genre) => {
+                return (
+                  <option key={genre} value={genre}>
+                    {genre}
+                  </option>
+                );
+              }
+            )}
           </select>
           <label>OVERVIEW</label>
           <input
+            name="overview"
             type="text"
             placeholder="Overview here"
-            onChange={handleOverviewChange}
+            value={movie.overview}
+            onChange={handleChange}
           ></input>
           <label>RUNTIME</label>
           <input
+            name="runtime"
             type="text"
             placeholder="Runtime here"
-            onChange={handleRuntimeChange}
+            value={movie.runtime}
+            onChange={handleChange}
           ></input>
         </Modal.Body>
         <Modal.Footer>
