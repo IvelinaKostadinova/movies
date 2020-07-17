@@ -11,7 +11,7 @@ const MVContextMenu = (props) => {
 
   return (
     <>
-      <ContextMenuTrigger id={id}>
+      <ContextMenuTrigger holdToDisplay={0} id={id}>
         <div className="context-menu">
           <button className="context-menu__btn">
             <span className="context-menu__btn__dot"></span>
@@ -22,8 +22,8 @@ const MVContextMenu = (props) => {
       </ContextMenuTrigger>
 
       <ContextMenu className="menu" id={id}>
-        <EditMovie movie={props.item}></EditMovie>
-        <DeleteMovie movie={props.item}></DeleteMovie>
+        <EditMovie movieToEdit={props.item}></EditMovie>
+        <DeleteMovie movieToDelete={props.item}></DeleteMovie>
       </ContextMenu>
     </>
   );

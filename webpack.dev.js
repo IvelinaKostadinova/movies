@@ -12,6 +12,9 @@ module.exports = merge(common, {
       template: 'src/views/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.API_URL': JSON.stringify('http://localhost:4000'),
+    }),
   ],
   devServer: {
     contentBase: './dist',

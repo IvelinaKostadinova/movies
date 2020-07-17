@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { MenuItem } from 'react-contextmenu';
+import { deleteMovie } from '../../redux/actions/movieActions';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const DeleteMovie = () => {
+const DeleteMovie = ({ movieToDelete, deleteMovie }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -18,6 +20,10 @@ const DeleteMovie = () => {
   };
 
   const handleSubmit = () => {
+    event.preventDefault();
+    deleteMovie(movieToDelete).catch((error) => {
+      alert('Deleting movie failed'.concat(error));
+    });
     setShow(false);
   };
 
@@ -50,7 +56,18 @@ const DeleteMovie = () => {
 };
 
 DeleteMovie.propTypes = {
-  movie: PropTypes.object,
+  deleteMovie: PropTypes.func.isRequired,
+  movieToDelete: PropTypes.object.isRequired,
 };
 
-export default DeleteMovie;
+function mapStateToProps(state) {
+  return {
+    movies: state.movies,
+  };
+}
+
+const mapDispatchToProps = {
+  deleteMovie,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteMovie);

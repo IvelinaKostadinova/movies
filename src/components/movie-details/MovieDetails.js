@@ -1,35 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
-import MoviesContext from '../../MoviesContext';
 import SearchIcon from '@material-ui/icons/Search';
+import { loadMovie } from '../../redux/actions/movieActions';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './MovieDetails.scss';
 
-const MovieDetails = () => {
-  const movies = React.useContext(MoviesContext);
-  const { id } = useParams();
-
-  const item = movies.find((i) => {
-    return i.id == parseInt(id);
-  });
-
+const MovieDetails = ({ movie }) => {
   return (
     <div className="details">
       <div className="details__picture">
-        <img className="details__picture__img" src={item.url}></img>
+        <img className="details__picture__img" src={movie.poster_path}></img>
       </div>
       <div className="details__info">
         <div className="details__info__name">
-          {item.name}
-          <span className="details__info__rating">{item.rating}</span>
+          {movie.title}
+          <span className="details__info__rating">{movie.vote_average}</span>
         </div>
-        <div className="details__info__award">{item.award}</div>
+        <div className="details__info__award">{movie.tagline}</div>
         <div className="details__info__year__duration">
-          {item.year}&nbsp;&nbsp;&nbsp;{item.duration}
+          {new Date(movie.release_date).getFullYear()}&nbsp;&nbsp;&nbsp;
+          {movie.duration}
         </div>
-        <div className="details__info__description">{item.description}</div>
+        <div className="details__info__description">{movie.overview}</div>
       </div>
       <div className="details__back">
         <Link to="/">
@@ -41,7 +35,22 @@ const MovieDetails = () => {
 };
 
 MovieDetails.propTypes = {
-  item: PropTypes.object,
+  movie: PropTypes.object.isRequired,
+  loadMovie: PropTypes.func.isRequired,
 };
 
-export default MovieDetails;
+function mapStateToProps(state, ownProps) {
+  const id = ownProps.match.params.id;
+
+  return {
+    movie: state.movies.find((item) => {
+      return item.id === parseInt(id);
+    }),
+  };
+}
+
+const mapDispatchToProps = {
+  loadMovie,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
