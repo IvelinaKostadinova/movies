@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const EditMovie = ({ movieToEdit, saveMovie }) => {
+export const EditMovie = ({ movieToEdit, saveMovie }) => {
   const initialMovie = {
     id: movieToEdit.id,
     title: movieToEdit.title,
@@ -47,9 +47,7 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    saveMovie(movie).catch((error) => {
-      alert('Saving movie failed'.concat(error));
-    });
+    saveMovie(movie);
     setShow(false);
   };
 

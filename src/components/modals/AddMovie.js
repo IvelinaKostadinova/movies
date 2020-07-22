@@ -17,7 +17,7 @@ const initialMovie = {
   runtime: null,
 };
 
-const AddMovie = ({ saveMovie }) => {
+export const AddMovie = ({ saveMovie }) => {
   const [show, setShow] = useState(false);
   const [movie, setMovie] = useState(initialMovie);
 
@@ -45,9 +45,7 @@ const AddMovie = ({ saveMovie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    saveMovie(movie).catch((error) => {
-      alert('Saving movie failed'.concat(error));
-    });
+    saveMovie(movie);
     setShow(false);
   };
 
@@ -67,6 +65,7 @@ const AddMovie = ({ saveMovie }) => {
           <label id="title">ADD MOVIE</label>
           <label>TITLE</label>
           <input
+            id="input-title"
             name="title"
             type="text"
             placeholder="Select Title"

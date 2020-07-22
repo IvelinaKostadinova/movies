@@ -57,7 +57,7 @@ export function saveMovie(movie) {
           : dispatch(createMovieSuccess(savedMovie));
       })
       .catch((error) => {
-        throw error;
+        alert('Saving movie failed'.concat(error));
       });
   };
 }
@@ -70,7 +70,7 @@ export function deleteMovie(movie) {
         dispatch(deleteMovieSuccess(deletedMovie));
       })
       .catch((error) => {
-        throw error;
+        alert('Deleting movie failed'.concat(error));
       });
   };
 }
