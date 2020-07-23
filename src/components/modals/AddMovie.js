@@ -113,6 +113,7 @@ export const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>RUNTIME</label>
           <input
+            id="runtime"
             name="runtime"
             type="text"
             placeholder="Runtime here"
