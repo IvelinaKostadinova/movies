@@ -29,7 +29,7 @@ export function loadMovies(sortBy, filterBy, searchBy) {
         dispatch(loadMoviesSuccess(response.data));
       })
       .catch((error) => {
-        throw error;
+        alert('Loading movies failed'.concat(error));
       });
   };
 }
@@ -42,7 +42,7 @@ export function loadMovie(id) {
         dispatch(loadMovieSuccess(response));
       })
       .catch((error) => {
-        throw error;
+        alert('Loading movie failed'.concat(error));
       });
   };
 }
