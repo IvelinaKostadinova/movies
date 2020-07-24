@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AddMovie } from './AddMovie';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
