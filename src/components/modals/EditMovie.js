@@ -67,6 +67,7 @@ export const EditMovie = ({ movieToEdit, saveMovie }) => {
           <label id="title">EDIT MOVIE</label>
           <label>TITLE</label>
           <input
+            id="input-title"
             name="title"
             type="text"
             placeholder="Select Title"
@@ -75,6 +76,8 @@ export const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
+            id="release_date"
+            value={movie.release_date}
             selected={new Date(movie.release_date)}
             onChange={handleReleaseDateChange}
             placeholderText="Select Date"
@@ -90,7 +93,9 @@ export const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>GENRE</label>
           <select
+            id="genres"
             name="genres"
+            value={movie.genres}
             defaultValue={movie.genres[0]}
             onChange={handleChange}
           >
@@ -117,6 +122,7 @@ export const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>RUNTIME</label>
           <input
+            id="runtime"
             name="runtime"
             type="text"
             placeholder="Runtime here"

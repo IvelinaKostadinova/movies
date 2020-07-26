@@ -66,6 +66,7 @@ export const AddMovie = ({ saveMovie }) => {
           <label>TITLE</label>
           <input
             id="input-title"
+            value={movie.title}
             name="title"
             type="text"
             placeholder="Select Title"
@@ -73,6 +74,7 @@ export const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
+            id="release_date"
             selected={movie.release_date}
             onChange={handleReleaseDateChange}
             placeholderText="Select Date"
@@ -87,7 +89,9 @@ export const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>GENRE</label>
           <select
+            id="genres"
             name="genres"
+            value={movie.genres}
             defaultValue={'SELECT_GENRE'}
             onChange={handleChange}
           >
@@ -116,6 +120,7 @@ export const AddMovie = ({ saveMovie }) => {
             id="runtime"
             name="runtime"
             type="text"
+            value={movie.runtime}
             placeholder="Runtime here"
             onChange={handleChange}
           ></input>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Search.scss';
 
-const Search = ({ onSearch }) => {
+export const Search = ({ onSearch }) => {
   const [text, setText] = useState('');
 
   const handleChange = (e) => {

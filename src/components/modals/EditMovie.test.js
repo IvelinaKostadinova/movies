@@ -54,3 +54,38 @@ it('sets show to false if button clicked', () => {
 
   expect(wrapper.find(Modal).props().show).toBe(false);
 });
+
+it('sets movie title to a selected value', () => {
+  const wrapper = render();
+  const input = wrapper.find('#input-title');
+  input.simulate('change', { target: { value: 'Title', name: 'title' } });
+
+  expect(wrapper.find('#input-title').prop('value')).toEqual('Title');
+});
+
+it('sets movie runtime to a selected value', () => {
+  const wrapper = render();
+  const input = wrapper.find('#runtime');
+  input.simulate('change', { target: { value: '120', name: 'runtime' } });
+
+  expect(wrapper.find('#runtime').prop('value')).toEqual(120);
+});
+
+it('sets movie genres to a selected value', () => {
+  const wrapper = render();
+  const input = wrapper.find('#genres');
+  input.simulate('change', { target: { value: 'Fantasy', name: 'genres' } });
+
+  expect(wrapper.find('#genres').prop('value')).toEqual(['Fantasy']);
+});
+
+it('sets movie release date to a selected value', () => {
+  const wrapper = render();
+  const input = wrapper.find('#release_date');
+  const date = new Date();
+  input.simulate('change', { date });
+
+  expect(wrapper.find('#release_date').prop('value')).toEqual({
+    date: date,
+  });
+});
