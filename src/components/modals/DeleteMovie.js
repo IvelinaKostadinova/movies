@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const DeleteMovie = ({ movieToDelete, deleteMovie }) => {
+export const DeleteMovie = ({ movieToDelete, deleteMovie }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -19,11 +19,9 @@ const DeleteMovie = ({ movieToDelete, deleteMovie }) => {
     setShow(true);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    deleteMovie(movieToDelete).catch((error) => {
-      alert('Deleting movie failed'.concat(error));
-    });
+    deleteMovie(movieToDelete);
     setShow(false);
   };
 

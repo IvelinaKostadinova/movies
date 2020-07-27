@@ -35,9 +35,7 @@ const HomePage = ({ movies, loadMovies }) => {
   };
 
   useEffect(() => {
-    loadMovies(sortBy, filterBy, searchBy).catch((error) => {
-      alert('Loading movies failed'.concat(error));
-    });
+    loadMovies(sortBy, filterBy, searchBy);
   }, [sortBy, filterBy, searchBy]);
 
   return (

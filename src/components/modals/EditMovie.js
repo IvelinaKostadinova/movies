@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import './Modal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const EditMovie = ({ movieToEdit, saveMovie }) => {
+export const EditMovie = ({ movieToEdit, saveMovie }) => {
   const initialMovie = {
     id: movieToEdit.id,
     title: movieToEdit.title,
@@ -47,9 +47,7 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    saveMovie(movie).catch((error) => {
-      alert('Saving movie failed'.concat(error));
-    });
+    saveMovie(movie);
     setShow(false);
   };
 
@@ -69,6 +67,7 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           <label id="title">EDIT MOVIE</label>
           <label>TITLE</label>
           <input
+            id="input-title"
             name="title"
             type="text"
             placeholder="Select Title"
@@ -77,6 +76,8 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
+            id="release_date"
+            value={movie.release_date}
             selected={new Date(movie.release_date)}
             onChange={handleReleaseDateChange}
             placeholderText="Select Date"
@@ -92,7 +93,9 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>GENRE</label>
           <select
+            id="genres"
             name="genres"
+            value={movie.genres}
             defaultValue={movie.genres[0]}
             onChange={handleChange}
           >
@@ -119,6 +122,7 @@ const EditMovie = ({ movieToEdit, saveMovie }) => {
           ></input>
           <label>RUNTIME</label>
           <input
+            id="runtime"
             name="runtime"
             type="text"
             placeholder="Runtime here"

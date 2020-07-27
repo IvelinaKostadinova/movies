@@ -17,7 +17,7 @@ const initialMovie = {
   runtime: null,
 };
 
-const AddMovie = ({ saveMovie }) => {
+export const AddMovie = ({ saveMovie }) => {
   const [show, setShow] = useState(false);
   const [movie, setMovie] = useState(initialMovie);
 
@@ -45,9 +45,7 @@ const AddMovie = ({ saveMovie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    saveMovie(movie).catch((error) => {
-      alert('Saving movie failed'.concat(error));
-    });
+    saveMovie(movie);
     setShow(false);
   };
 
@@ -67,6 +65,8 @@ const AddMovie = ({ saveMovie }) => {
           <label id="title">ADD MOVIE</label>
           <label>TITLE</label>
           <input
+            id="input-title"
+            value={movie.title}
             name="title"
             type="text"
             placeholder="Select Title"
@@ -74,6 +74,7 @@ const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>RELEASE DATE</label>
           <DatePicker
+            id="release_date"
             selected={movie.release_date}
             onChange={handleReleaseDateChange}
             placeholderText="Select Date"
@@ -88,7 +89,9 @@ const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>GENRE</label>
           <select
+            id="genres"
             name="genres"
+            value={movie.genres}
             defaultValue={'SELECT_GENRE'}
             onChange={handleChange}
           >
@@ -114,8 +117,10 @@ const AddMovie = ({ saveMovie }) => {
           ></input>
           <label>RUNTIME</label>
           <input
+            id="runtime"
             name="runtime"
             type="text"
+            value={movie.runtime}
             placeholder="Runtime here"
             onChange={handleChange}
           ></input>

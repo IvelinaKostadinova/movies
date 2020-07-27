@@ -1,12 +1,10 @@
-import React from 'react';
-
-const movies = [
+export const movies = [
   {
     id: 1,
     name: 'Harry Potter',
     award: 'Oscar winning movie',
     rating: 8.6,
-    genre: 'Fantasy',
+    genres: ['Fantasy'],
     year: '2010',
     duration: '154min',
     description:
@@ -19,7 +17,7 @@ const movies = [
     name: 'Lord of the rings',
     award: 'Oscar winning movie',
     rating: 9.6,
-    genre: 'Fantasy',
+    genres: ['Fantasy'],
     year: '2012',
     duration: '128min',
     description:
@@ -32,7 +30,7 @@ const movies = [
     name: 'Game of thrones',
     award: 'Oscar winning movie',
     rating: 9.8,
-    genre: 'Fantasy',
+    genres: ['Fantasy'],
     year: '2011',
     duration: '93min',
     description:
@@ -41,7 +39,3 @@ const movies = [
       'https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg',
   },
 ];
-
-const MoviesContext = React.createContext(movies);
-
-export default MoviesContext;

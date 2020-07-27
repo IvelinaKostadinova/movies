@@ -6,7 +6,7 @@ import { ContextMenu, ContextMenuTrigger } from 'react-contextmenu';
 
 import './MVContextMenu.scss';
 
-const MVContextMenu = (props) => {
+export const MVContextMenu = (props) => {
   const id = 'contextMenuTrigger_'.concat(props.item.id);
 
   return (

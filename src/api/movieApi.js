@@ -1,5 +1,6 @@
 import { handleResponse, handleError } from './apiUtils';
-const baseUrl = process.env.API_URL.concat('/movies');
+// eslint-disable-next-line prefer-template
+const baseUrl = process.env.API_URL + '/movies';
 
 export function getMovies(sortBy, filterBy, searchBy) {
   let queryParams = '';

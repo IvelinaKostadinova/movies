@@ -29,7 +29,7 @@ export function loadMovies(sortBy, filterBy, searchBy) {
         dispatch(loadMoviesSuccess(response.data));
       })
       .catch((error) => {
-        throw error;
+        alert('Loading movies failed'.concat(error));
       });
   };
 }
@@ -42,7 +42,7 @@ export function loadMovie(id) {
         dispatch(loadMovieSuccess(response));
       })
       .catch((error) => {
-        throw error;
+        alert('Loading movie failed'.concat(error));
       });
   };
 }
@@ -57,7 +57,7 @@ export function saveMovie(movie) {
           : dispatch(createMovieSuccess(savedMovie));
       })
       .catch((error) => {
-        throw error;
+        alert('Saving movie failed'.concat(error));
       });
   };
 }
@@ -70,7 +70,7 @@ export function deleteMovie(movie) {
         dispatch(deleteMovieSuccess(deletedMovie));
       })
       .catch((error) => {
-        throw error;
+        alert('Deleting movie failed'.concat(error));
       });
   };
 }
