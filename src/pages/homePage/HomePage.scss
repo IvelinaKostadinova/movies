@@ -19,6 +19,13 @@
         border-color: $black;
         margin: 1;
       }
+
+      &__no-movies-found {
+        color: white;
+        font-size: 5.6rem;
+        margin: 20rem auto 0 auto;
+        width: 51.2rem;
+      }
     }
 
     &__text {

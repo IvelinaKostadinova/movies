@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+
+#not-found {
+    margin: 20rem auto 0 auto;
+    width: 51.2rem;
+
+    &__title {
+      color: white;
+      font-size: 5.5rem;
+      text-align: center;
+      width: 51.2rem;
+    }
+
+    &__text {
+        width: 51.2rem;
+        font-size: 2.5rem;
+        border: 2px solid $pink;
+
+        a {
+            color: $pink;
+        }
+    }
+}

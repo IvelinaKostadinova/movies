@@ -4,8 +4,8 @@ import Filter from '../filter/Filter';
 
 import './Actions.scss';
 
-const Actions = ({ onFilter, onSort }) => {
-  const [selectedGenre, setSelectedGenre] = useState(null);
+const Actions = ({ filter, sort, onFilter, onSort }) => {
+  const [selectedGenre, setSelectedGenre] = useState(filter);
 
   const handleSelect = (e) => {
     onSort(e.target.value);
@@ -30,7 +30,12 @@ const Actions = ({ onFilter, onSort }) => {
         }
       )}
 
-      <select name="sort" className="actions__sort" onChange={handleSelect}>
+      <select
+        defaultValue={sort}
+        name="sort"
+        className="actions__sort"
+        onChange={handleSelect}
+      >
         <option value="release_date">RELEASE DATE</option>
         <option value="title">TITLE</option>
       </select>
@@ -40,6 +45,8 @@ const Actions = ({ onFilter, onSort }) => {
 };
 
 Actions.propTypes = {
+  filter: PropTypes.string.isRequired,
+  sort: PropTypes.string.isRequired,
   onFilter: PropTypes.func.isRequired,
   onSort: PropTypes.func.isRequired,
 };
