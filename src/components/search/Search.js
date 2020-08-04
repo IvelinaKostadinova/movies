@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Search.scss';
 
-export const Search = ({ onSearch }) => {
-  const [text, setText] = useState('');
+export const Search = ({ initialSearch, onSearch }) => {
+  const [text, setText] = useState(initialSearch);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -31,6 +31,7 @@ export const Search = ({ onSearch }) => {
 };
 
 Search.propTypes = {
+  initialSearch: PropTypes.string.isRequired,
   onSearch: PropTypes.func.isRequired,
 };
 
