@@ -87,15 +87,18 @@ const HomePage = ({ movies, loadMovies }) => {
             <Route exact path="/">
               <div id="home__search">
                 <AddMovie></AddMovie>
-                <Search search={searchBy} onSearch={handleSearch}></Search>
+                <Search
+                  initialSearch={searchBy}
+                  onSearch={handleSearch}
+                ></Search>
               </div>
             </Route>
             <Route path="/movie/:id" component={MovieDetails}></Route>
           </Switch>
           <div id="home__result">
             <Actions
-              filter={filterBy}
-              sort={sortBy}
+              initialSelectedGenre={filterBy}
+              initialSort={sortBy}
               onFilter={handleFilter}
               onSort={handleSort}
             ></Actions>
